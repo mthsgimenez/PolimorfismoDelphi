@@ -44,7 +44,7 @@ var temEntrega:Boolean;
 begin
   if aTrabalhador<>nil then begin
     ShowMessage('Bom dia '+aTrabalhador.getNome+', seja bem vindo!');
-    temEntrega:=Random(1).ToBoolean;
+    temEntrega:=RandomRange(0,1).ToBoolean;
     if temEntrega then begin
       ShowMessage(aTrabalhador.getNome+', chegou uma entrega para você.');
     end;

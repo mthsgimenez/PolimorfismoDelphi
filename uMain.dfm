@@ -1,7 +1,7 @@
-object Form2: TForm2
+object FormTrabalhadores: TFormTrabalhadores
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Caption = 'Cadastro de trabalhadores'
   ClientHeight = 299
   ClientWidth = 852
   Color = clBtnFace
@@ -10,32 +10,26 @@ object Form2: TForm2
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  PixelsPerInch = 96
   TextHeight = 13
   object PnlTrabalhadores: TPanel
     Left = 0
     Top = 0
     Width = 852
-    Height = 201
+    Height = 200
     Align = alTop
     Color = clSilver
     ParentBackground = False
     TabOrder = 0
-    object ScrollBox1: TScrollBox
+    object ScrollBoxTrabalhadores: TScrollBox
       Left = 1
       Top = 1
       Width = 850
-      Height = 199
+      Height = 198
       VertScrollBar.Visible = False
       Align = alClient
       TabOrder = 0
-      ExplicitLeft = 336
-      ExplicitTop = 80
-      ExplicitWidth = 185
-      ExplicitHeight = 41
     end
   end
   object btnAdcTrabalhador: TButton
@@ -66,26 +60,34 @@ object Form2: TForm2
     object lbNome: TLabel
       Left = 74
       Top = 58
-      Width = 136
+      Width = 141
       Height = 13
-      Caption = 'Digite o nome do funcion'#225'rio'
+      Caption = 'Digite o nome do Trabalhador'
     end
-    object Button3: TButton
+    object lbCargo: TLabel
+      Left = 74
+      Top = 14
+      Width = 86
+      Height = 13
+      Caption = 'Selecione o Cargo'
+    end
+    object bConfirmar: TButton
       Left = 91
       Top = 100
       Width = 105
       Height = 25
       Caption = 'Confirmar'
       TabOrder = 1
-      OnClick = Button3Click
+      OnClick = bConfirmarClick
     end
     object cbCargos: TComboBox
       Left = 72
       Top = 31
       Width = 145
       Height = 21
+      ItemIndex = 0
       TabOrder = 0
-      Text = 'Selecione um cargo'
+      Text = 'Programador'
       Items.Strings = (
         'Programador'
         'Recepcionista'

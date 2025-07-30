@@ -15,6 +15,8 @@ interface
   public
     function getNome:String;
     procedure setNome(aNome:String);
+    function getCargo:String;
+    procedure setCargo(aCargo:String);
     constructor Create(aNome:String);
     procedure ExecutarFuncao; virtual;
   end;
@@ -38,6 +40,11 @@ begin
   Self.IniciarExpediente;
 end;
 
+function TTrabalhador.getCargo: String;
+begin
+  Result:=Self.Cargo;
+end;
+
 function TTrabalhador.getNome: String;
 begin
   Result:=Self.Nome;
@@ -46,6 +53,11 @@ end;
 procedure TTrabalhador.IniciarExpediente;
 begin
   Self.Trabalhando:=True;
+end;
+
+procedure TTrabalhador.setCargo(aCargo: String);
+begin
+  Self.Cargo:=aCargo;
 end;
 
 procedure TTrabalhador.setNome(aNome: String);

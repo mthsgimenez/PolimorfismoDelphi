@@ -20,7 +20,7 @@ implementation
 procedure TProgramador.CorrigirFalhas;
 var i,numeroFalha,QuantidadeFalhas:Integer;
 begin
-  QuantidadeFalhas:=Random(10);
+  QuantidadeFalhas:=Random(5);
   for i:=1 to QuantidadeFalhas do begin
     numeroFalha:=Random(99999);
     ShowMessage('O Programador '+Self.Nome+' está corrigindo a falha FA'+numeroFalha.ToString);
@@ -35,7 +35,7 @@ end;
 procedure TProgramador.ImplementarFeatures;
 var i,numeroIM,QuantidadeImplementacoes:Integer;
 begin
-  QuantidadeImplementacoes:=Random(10);
+  QuantidadeImplementacoes:=Random(5);
   for i:=1 to QuantidadeImplementacoes do begin
     numeroIM:=Random(99999);
     ShowMessage('O Programador '+Self.Nome+' está implementando o protocolo IM'+numeroIM.ToString);

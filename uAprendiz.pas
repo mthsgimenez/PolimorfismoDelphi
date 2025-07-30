@@ -2,7 +2,7 @@ unit uAprendiz;
 
 interface
 
-uses uTrabalhador, System.SysUtils, FMX.Dialogs;
+uses uTrabalhador, System.SysUtils, FMX.Dialogs, System.Math;
 
   type TAprendiz = class(TTrabalhador)
   private
@@ -21,10 +21,11 @@ implementation
 
 procedure TAprendiz.ExecutarFuncao;
 begin
-  inherited ExecutarFuncao;
+  Self.IniciarExpediente;
   Self.PrestarAtencaoNaExplicacao;
   Self.RealizarAsPraticas;
   Self.ConstruirSistema;
+  Self.EncerrarExpediente;
 end;
 
 procedure TAprendiz.PrestarAtencaoNaExplicacao;
@@ -37,7 +38,7 @@ procedure TAprendiz.RealizarAsPraticas;
 begin
   PrestandoAtencaoNaExplicacao:=False;
   ShowMessage('O(a) aprendiz '+Self.Nome+' está praticando');
-  ConhecimentoAbsorvido:=(Random(1).ToBoolean);
+  ConhecimentoAbsorvido:=RandomRange(0,1).ToBoolean;
 end;
 
 procedure TAprendiz.ConstruirSistema;
