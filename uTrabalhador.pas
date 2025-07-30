@@ -13,6 +13,7 @@ interface
     procedure EncerrarExpediente;
     procedure IniciarExpediente;
   public
+    constructor Create(aCargo, aNome: String; aHorarioEntrada: TTime; aSalario: Currency);
     function getNome:String;
     procedure setNome(aNome:String);
     function getCargo:String;
@@ -29,6 +30,14 @@ implementation
 uses SysUtils;
 
 { TTrabalhador }
+
+constructor TTrabalhador.Create(aCargo, aNome: String; aHorarioEntrada: TTime; aSalario: Currency);
+begin
+  Self.setCargo(aCargo);
+  Self.setNome(aNome);
+  Self.setHorarioEntrada(aHorarioEntrada);
+  Self.setSalario(aSalario);
+end;
 
 procedure TTrabalhador.EncerrarExpediente;
 begin
