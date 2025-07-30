@@ -110,6 +110,8 @@ var PainelUsuario:TPanel;
     lbNomeUsuario:TLabel;
     lbCargoUsuario:TLabel;
     lbEspacamento:TLabel;
+    lbSalario: TLabel;
+    lbHorarioEntrada: TLabel;
 begin
   //Painel Novo
   PainelUsuario:=TPanel.Create(ScrollBoxTrabalhadores);
@@ -122,6 +124,22 @@ begin
   PainelUsuario.Padding.Bottom:=10;
   PainelUsuario.Padding.Top:=10;
   PainelUsuario.Padding.Right:=10;
+
+  //Adicionando HorarioEntrada
+  lbHorarioEntrada := TLabel.Create(PainelUsuario);
+  lbHorarioEntrada.Align := alTop;
+  lbHorarioEntrada.Alignment := taCenter;
+  lbHorarioEntrada.Font.Size := 10;
+  lbHorarioEntrada.Parent := PainelUsuario;
+  lbHorarioEntrada.Caption := 'Entrada: ' + TimeToStr(aTrabalhador.getHorarioEntrada);
+
+  //Adicionando Salario
+  lbSalario := TLabel.Create(PainelUsuario);
+  lbSalario.Align := alTop;
+  lbSalario.Alignment := taCenter;
+  lbSalario.Font.Size := 10;
+  lbSalario.Parent := PainelUsuario;
+  lbSalario.Caption := 'R$ ' + aTrabalhador.getSalario.ToString;
 
   //Adicionando Nome
   lbNomeUsuario:=TLabel.Create(PainelUsuario);

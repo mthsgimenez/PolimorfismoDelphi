@@ -124,11 +124,13 @@ object FormTrabalhadores: TFormTrabalhadores
       Top = 115
       Width = 145
       Height = 25
+      DropDownCount = 5
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ShowOkCancel = False
       TabOrder = 3
       Time = 0.333333333333333300
       TimeFormat = 'hh:nn'
