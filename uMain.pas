@@ -44,10 +44,12 @@ procedure TFormTrabalhadores.AdicionarTrabalhadorNaLista;
 var trabalhador:TTrabalhador;
     nome:String;
 begin
+
 //  Programador [0]
 //  Recepcionista [1]
 //  Aprendiz [2]
 //  Jaguara [3]
+
   nome:=edNome.Text;
   if cbCargos.ItemIndex=0 then begin
    trabalhador:=TProgramador.Create(nome);

@@ -1,6 +1,8 @@
 object FormTrabalhadores: TFormTrabalhadores
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsDialog
   Caption = 'Cadastro de trabalhadores'
   ClientHeight = 299
   ClientWidth = 852
@@ -10,6 +12,7 @@ object FormTrabalhadores: TFormTrabalhadores
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Position = poDesktopCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   TextHeight = 13
@@ -22,6 +25,7 @@ object FormTrabalhadores: TFormTrabalhadores
     Color = clSilver
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 850
     object ScrollBoxTrabalhadores: TScrollBox
       Left = 1
       Top = 1
@@ -30,6 +34,7 @@ object FormTrabalhadores: TFormTrabalhadores
       VertScrollBar.Visible = False
       Align = alClient
       TabOrder = 0
+      ExplicitWidth = 848
     end
   end
   object btnAdcTrabalhador: TButton
