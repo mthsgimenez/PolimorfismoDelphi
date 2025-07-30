@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, uTrabalhador, uJaguara, uAprendiz, uProgramador,
-  uRecepcionista, System.Generics.Collections;
+  uRecepcionista, System.Generics.Collections, Vcl.WinXPickers,
+  Vcl.NumberBox;
 
 type
   TFormTrabalhadores = class(TForm)
@@ -19,6 +20,10 @@ type
     lbNome: TLabel;
     ScrollBoxTrabalhadores: TScrollBox;
     lbCargo: TLabel;
+    lblHorarioEntrada: TLabel;
+    tmpHorarioEntrada: TTimePicker;
+    lblSalario: TLabel;
+    nbmSalario: TNumberBox;
     procedure btnComecarTrabalhosClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
