@@ -33,7 +33,6 @@ object FormTrabalhadores: TFormTrabalhadores
       VertScrollBar.Visible = False
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 252
     end
   end
   object btnAdcTrabalhador: TButton

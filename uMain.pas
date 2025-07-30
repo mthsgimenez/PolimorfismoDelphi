@@ -47,7 +47,9 @@ implementation
 
 procedure TFormTrabalhadores.AdicionarTrabalhadorNaLista;
 var trabalhador:TTrabalhador;
-    nome:String;
+    nome, cargo: String;
+    horarioEntrada: TTime;
+    salario: Currency;
 begin
 
 //  Programador [0]
@@ -56,20 +58,21 @@ begin
 //  Jaguara [3]
 
   nome:=edNome.Text;
-  if cbCargos.ItemIndex=0 then begin
-   trabalhador:=TProgramador.Create;
-  end else if cbCargos.ItemIndex=1 then begin
-    trabalhador:=TRecepcionista.Create;
-  end else if cbCargos.ItemIndex=2 then begin
-    trabalhador:=TAprendiz.Create;
-  end else begin
-    trabalhador:=TJaguara.Create;
-  end;
+  cargo := cbCargos.Text;
+  horarioEntrada := tmpHorarioEntrada.Time;
+  salario := nbmSalario.ValueCurrency;
+
   try
-    trabalhador.setCargo(cbCargos.Text);
-    trabalhador.setNome(nome);
-    trabalhador.setHorarioEntrada(tmpHorarioEntrada.Time);
-    trabalhador.setSalario(nbmSalario.ValueCurrency);
+
+  if cbCargos.ItemIndex = 0 then begin
+    trabalhador := TProgramador.Create(cargo, nome, horarioEntrada, salario);
+  end else if cbCargos.ItemIndex = 1 then begin
+    trabalhador := TRecepcionista.Create(cargo, nome, horarioEntrada, salario);
+  end else if cbCargos.ItemIndex = 2 then begin
+    trabalhador := TAprendiz.Create(cargo, nome, horarioEntrada, salario);
+  end else begin
+    trabalhador := TJaguara.Create(cargo, nome, horarioEntrada, salario);
+  end;
 
     wListaTrabalhadores.Add(trabalhador);
     AdicionarTrabalhadorNaTela(trabalhador);
@@ -78,7 +81,7 @@ begin
     edNome.Clear;
     cbCargos.ItemIndex:= -1;
     nbmSalario.Value := 0;
-    tmpHorarioEntrada.Time := 8;
+    tmpHorarioEntrada.Time := StrToTime('08:00');
   except
   on e: Exception do
     ShowMessage(e.ToString);
