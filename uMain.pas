@@ -57,17 +57,32 @@ begin
 
   nome:=edNome.Text;
   if cbCargos.ItemIndex=0 then begin
-   trabalhador:=TProgramador.Create(nome);
+   trabalhador:=TProgramador.Create;
   end else if cbCargos.ItemIndex=1 then begin
-    trabalhador:=TRecepcionista.Create(nome);
+    trabalhador:=TRecepcionista.Create;
   end else if cbCargos.ItemIndex=2 then begin
-    trabalhador:=TAprendiz.Create(nome);
+    trabalhador:=TAprendiz.Create;
   end else begin
-    trabalhador:=TJaguara.Create(nome);
+    trabalhador:=TJaguara.Create;
   end;
-  trabalhador.setCargo(cbCargos.Text);
-  wListaTrabalhadores.Add(trabalhador);
-  AdicionarTrabalhadorNaTela(trabalhador);
+  try
+    trabalhador.setCargo(cbCargos.Text);
+    trabalhador.setNome(nome);
+    trabalhador.setHorarioEntrada(tmpHorarioEntrada.Time);
+    trabalhador.setSalario(nbmSalario.ValueCurrency);
+
+    wListaTrabalhadores.Add(trabalhador);
+    AdicionarTrabalhadorNaTela(trabalhador);
+
+    pnlAdcTrabalhador.Visible:=False;
+    edNome.Clear;
+    cbCargos.ItemIndex:= -1;
+    nbmSalario.Value := 0;
+    tmpHorarioEntrada.Time := 8;
+  except
+  on e: Exception do
+    ShowMessage(e.ToString);
+  end;
 end;
 
 procedure TFormTrabalhadores.btnAdcTrabalhadorClick(Sender: TObject);
@@ -134,9 +149,6 @@ end;
 procedure TFormTrabalhadores.bConfirmarClick(Sender: TObject);
 begin
   AdicionarTrabalhadorNaLista;
-  edNome.Clear;
-  cbCargos.ItemIndex:=-1;
-  pnlAdcTrabalhador.Visible:=False;
 end;
 
 procedure TFormTrabalhadores.FormCreate(Sender: TObject);

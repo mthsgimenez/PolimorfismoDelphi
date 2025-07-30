@@ -105,7 +105,7 @@ object FormTrabalhadores: TFormTrabalhadores
       Height = 21
       ItemIndex = 0
       TabOrder = 0
-      Text = 'Programador'
+      Text = '-- Selecione um cargo --'
       Items.Strings = (
         'Programador'
         'Recepcionista'
