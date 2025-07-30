@@ -7,8 +7,8 @@ interface
     Trabalhando:Boolean;
     Nome:String;
     Cargo:String;
-    HorarioEntrada:Double;
-    HorarioSaida:Double;
+    HorarioEntrada:TTime;
+    HorarioSaida:TTime;
     Salario:Currency;
     procedure EncerrarExpediente;
     procedure IniciarExpediente;
@@ -17,18 +17,18 @@ interface
     procedure setNome(aNome:String);
     function getCargo:String;
     procedure setCargo(aCargo:String);
-    constructor Create(aNome:String);
+    function getHorarioEntrada: Double;
+    procedure setHorarioEntrada(aHorarioEntrada: Double);
+    function getSalario: Currency;
+    procedure setSalario(aSalario: Currency);
     procedure ExecutarFuncao; virtual;
   end;
 
 implementation
 
-{ TTrabalhador }
+uses SysUtils;
 
-constructor TTrabalhador.Create(aNome: String);
-begin
-  Self.Nome:=aNome;
-end;
+{ TTrabalhador }
 
 procedure TTrabalhador.EncerrarExpediente;
 begin
@@ -45,9 +45,19 @@ begin
   Result:=Self.Cargo;
 end;
 
+function TTrabalhador.getHorarioEntrada: Double;
+begin
+  Result := Self.HorarioEntrada;
+end;
+
 function TTrabalhador.getNome: String;
 begin
   Result:=Self.Nome;
+end;
+
+function TTrabalhador.getSalario: Currency;
+begin
+  Result := Self.Salario;
 end;
 
 procedure TTrabalhador.IniciarExpediente;
@@ -57,12 +67,38 @@ end;
 
 procedure TTrabalhador.setCargo(aCargo: String);
 begin
+  if (aCargo <> 'Programador')
+  and (aCargo <> 'Recepcionista')
+  and (aCargo <> 'Aprendiz')
+  and (aCargo <> 'Jaguara')
+  then begin
+    raise Exception.Create('Cargo inválido');
+  end;
+
   Self.Cargo:=aCargo;
+end;
+
+procedure TTrabalhador.setHorarioEntrada(aHorarioEntrada: Double);
+begin
+  Self.HorarioEntrada := aHorarioEntrada;
 end;
 
 procedure TTrabalhador.setNome(aNome: String);
 begin
+  if Trim(aNome).Length < 3 then begin
+    raise Exception.Create('Nome muito pequeno. Mínimo de 3 letras.');
+  end;
+
   Self.Nome:=aNome;
+end;
+
+procedure TTrabalhador.setSalario(aSalario: Currency);
+begin
+  if aSalario < 600 then begin
+    raise Exception.Create('O salário não pode ser menor que R$ 600,00.');
+  end;
+
+  Self.Salario := aSalario;
 end;
 
 end.
