@@ -17,8 +17,8 @@ interface
     procedure setNome(aNome:String);
     function getCargo:String;
     procedure setCargo(aCargo:String);
-    function getHorarioEntrada: Double;
-    procedure setHorarioEntrada(aHorarioEntrada: Double);
+    function getHorarioEntrada: TTime;
+    procedure setHorarioEntrada(aHorarioEntrada: TTime);
     function getSalario: Currency;
     procedure setSalario(aSalario: Currency);
     procedure ExecutarFuncao; virtual;
@@ -45,7 +45,7 @@ begin
   Result:=Self.Cargo;
 end;
 
-function TTrabalhador.getHorarioEntrada: Double;
+function TTrabalhador.getHorarioEntrada: TTime;
 begin
   Result := Self.HorarioEntrada;
 end;
@@ -78,7 +78,7 @@ begin
   Self.Cargo:=aCargo;
 end;
 
-procedure TTrabalhador.setHorarioEntrada(aHorarioEntrada: Double);
+procedure TTrabalhador.setHorarioEntrada(aHorarioEntrada: TTime);
 begin
   Self.HorarioEntrada := aHorarioEntrada;
 end;
